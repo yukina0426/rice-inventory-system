@@ -7,6 +7,7 @@ Laravelを使用して作成したお米在庫管理システムです。
 品種ごとの在庫数や価格を管理できるCRUDアプリケーションとして作成しました。
 
 ## 画面イメージ
+
 ### 商品一覧
 
 ![商品一覧](screenshots/index.png)
@@ -47,28 +48,28 @@ Laravelを使用して作成したお米在庫管理システムです。
 | Bootstrap | 5      |
 | Database  | SQLite |
 
-## テーブル設計
+## 設計
 
-### products
+本システムは実装前に以下の設計を行いました。
 
-| カラム名        | 型       | 説明     |
-| ----------- | ------- | ------ |
-| id          | bigint  | ID     |
-| variety     | string  | 品種     |
-| stock_5kg   | integer | 5kg在庫  |
-| stock_10kg  | integer | 10kg在庫 |
-| stock_20kg  | integer | 20kg在庫 |
-| stock_30kg  | integer | 30kg在庫 |
-| price_5kg   | integer | 5kg価格  |
-| price_10kg  | integer | 10kg価格 |
-| price_20kg  | integer | 20kg価格 |
-| price_30kg  | integer | 30kg価格 |
-| description | text    | 説明     |
+- 画面一覧
+- 画面設計
+- 項目定義
+- DB設計
+
+設計書は docs フォルダに格納しています。
+
+### 画面一覧
+
+- 商品一覧
+- 商品登録
+- 商品詳細
+- 商品編集
 
 ## 工夫した点
 
 * FormRequestを利用してバリデーションを実装
-* 共通レイアウトを利用して画面構成を統一
+* Bladeレイアウトを利用して共通部分を共通化
 * 検索機能とページネーションを組み合わせて実装
 * 在庫0の商品を赤文字で表示
 

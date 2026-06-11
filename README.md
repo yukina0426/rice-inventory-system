@@ -6,6 +6,24 @@ Laravelを使用して作成したお米在庫管理システムです。
 
 品種ごとの在庫数や価格を管理できるCRUDアプリケーションとして作成しました。
 
+## 画面イメージ
+### 商品一覧
+
+![商品一覧](screenshots/index.png)
+
+### 商品登録
+
+![商品登録](screenshots/create.png)
+
+### 商品詳細
+
+![商品詳細](screenshots/show.png)
+
+### 商品編集
+
+![商品編集](screenshots/edit.png)
+
+
 ## 主な機能
 
 * 商品一覧表示

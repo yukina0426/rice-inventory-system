@@ -18,4 +18,9 @@ class Product extends Model
         'price_30kg',
         'description',
     ];
+
+    public function stocks()
+    {
+        return $this->hasMany(ProductStock::class);
+    }
 }

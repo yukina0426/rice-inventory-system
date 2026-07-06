@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 
@@ -26,34 +26,6 @@
                 <th style="width: 180px;">品種</th>
                 <td>
                     <input type="text" name="variety" value="{{ old('variety', $product->variety) }}" class="form-control">
-                </td>
-            </tr>
-
-            <tr>
-                <th>5kg在庫</th>
-                <td>
-                    <input type="number" name="stock_5kg" value="{{ old('stock_5kg', $product->stock_5kg) }}" class="form-control">
-                </td>
-            </tr>
-
-            <tr>
-                <th>10kg在庫</th>
-                <td>
-                    <input type="number" name="stock_10kg" value="{{ old('stock_10kg', $product->stock_10kg) }}" class="form-control">
-                </td>
-            </tr>
-
-            <tr>
-                <th>20kg在庫</th>
-                <td>
-                    <input type="number" name="stock_20kg" value="{{ old('stock_20kg', $product->stock_20kg) }}" class="form-control">
-                </td>
-            </tr>
-
-            <tr>
-                <th>30kg在庫</th>
-                <td>
-                    <input type="number" name="stock_30kg" value="{{ old('stock_30kg', $product->stock_30kg) }}" class="form-control">
                 </td>
             </tr>
 

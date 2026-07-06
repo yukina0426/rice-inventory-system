@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 
@@ -100,7 +100,7 @@
             <a href="{{ route('products.index') }}" class="btn btn-outline-secondary">
                 一覧に戻る
             </a>
-</div>
+        </div>
     </form>
 </div>
 

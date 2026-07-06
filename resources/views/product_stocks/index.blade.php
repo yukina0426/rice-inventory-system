@@ -3,10 +3,10 @@
 @section('content')
 
 <div class="page-header d-flex justify-content-between align-items-center mb-3">
-    <h2 class="page-title">お米在庫一覧</h2>
+    <h2 class="page-title">年度在庫一覧</h2>
 
-    <a href="{{ route('products.create') }}" class="btn btn-primary">
-        新規登録
+    <a href="{{ route('product-stocks.create') }}" class="btn btn-primary">
+        年度在庫登録
     </a>
 </div>
 
@@ -17,14 +17,24 @@
 @endif
 
 <div class="search-card">
-    <form action="{{ route('products.index') }}" method="GET" class="row g-2">
-        <div class="col-md-6">
+    <form action="{{ route('product-stocks.index') }}" method="GET" class="row g-2">
+        <div class="col-md-5">
             <input
                 type="text"
                 name="keyword"
                 value="{{ request('keyword') }}"
                 class="form-control"
                 placeholder="品種名で検索"
+            >
+        </div>
+
+        <div class="col-md-3">
+            <input
+                type="number"
+                name="crop_year"
+                value="{{ request('crop_year') }}"
+                class="form-control"
+                placeholder="年産 例：2026"
             >
         </div>
 
@@ -35,7 +45,7 @@
         </div>
 
         <div class="col-auto">
-            <a href="{{ route('products.index') }}" class="btn btn-outline-secondary">
+            <a href="{{ route('product-stocks.index') }}" class="btn btn-outline-secondary">
                 クリア
             </a>
         </div>
@@ -44,12 +54,14 @@
 
 <div class="table-card">
     <p class="text-muted">
-        全{{ $products->total() }}件
+        全{{ $stocks->total() }}件
     </p>
+
     <table class="table inventory-table align-middle">
         <thead class="table-light">
             <tr>
                 <th>品種</th>
+                <th>年産</th>
                 <th>5kg</th>
                 <th>10kg</th>
                 <th>20kg</th>
@@ -59,31 +71,36 @@
         </thead>
 
         <tbody>
-            @forelse ($products as $product)
+            @forelse ($stocks as $stock)
                 <tr>
-                    <td>{{ $product->variety }}</td>
-                    <td class="{{ $product->price_5kg == 0 ? 'text-danger fw-bold' : '' }}">
-                        {{ $product->price_5kg }}円
+                    <td>{{ $stock->product->variety }}</td>
+                    <td>{{ $stock->crop_year }}年産</td>
+
+                    <td class="{{ $stock->stock_5kg == 0 ? 'text-danger fw-bold' : '' }}">
+                        {{ $stock->stock_5kg }}袋
                     </td>
-                    <td class="{{ $product->price_10kg == 0 ? 'text-danger fw-bold' : '' }}">
-                        {{ $product->price_10kg }}円
+
+                    <td class="{{ $stock->stock_10kg == 0 ? 'text-danger fw-bold' : '' }}">
+                        {{ $stock->stock_10kg }}袋
                     </td>
-                    <td class="{{ $product->price_20kg == 0 ? 'text-danger fw-bold' : '' }}">
-                        {{ $product->price_20kg }}円
+
+                    <td class="{{ $stock->stock_20kg == 0 ? 'text-danger fw-bold' : '' }}">
+                        {{ $stock->stock_20kg }}袋
                     </td>
-                    <td class="{{ $product->price_30kg == 0 ? 'text-danger fw-bold' : '' }}">
-                        {{ $product->price_30kg }}円
+
+                    <td class="{{ $stock->stock_30kg == 0 ? 'text-danger fw-bold' : '' }}">
+                        {{ $stock->stock_30kg }}袋
                     </td>
+
                     <td>
-                        <a href="{{ route('products.edit', $product) }}"
-                        class="btn btn-sm btn-outline-primary">
+                        <a href="{{ route('product-stocks.edit', $stock) }}" class="btn btn-sm btn-outline-primary">
                             編集
                         </a>
 
-                        <form action="{{ route('products.destroy', $product) }}"
+                        <form action="{{ route('product-stocks.destroy', $stock) }}"
                             method="POST"
                             class="d-inline"
-                            onsubmit="return confirm('この商品を削除しますか？');">
+                            onsubmit="return confirm('この年度在庫を削除しますか？');">
                             @csrf
                             @method('DELETE')
 
@@ -95,8 +112,8 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="6" class="text-center">
-                        該当する商品がありません。
+                    <td colspan="7" class="text-center">
+                        該当する年度在庫がありません。
                     </td>
                 </tr>
             @endforelse
@@ -104,6 +121,6 @@
     </table>
 </div>
 
-{{ $products->withQueryString()->links() }}
+{{ $stocks->withQueryString()->links() }}
 
 @endsection

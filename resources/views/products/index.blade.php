@@ -50,10 +50,11 @@
         <thead class="table-light">
             <tr>
                 <th>品種</th>
-                <th>5kg</th>
-                <th>10kg</th>
-                <th>20kg</th>
-                <th>30kg</th>
+                <th>説明</th>
+                <th>5kg価格</th>
+                <th>10kg価格</th>
+                <th>20kg価格</th>
+                <th>30kg価格</th>
                 <th></th>
             </tr>
         </thead>
@@ -62,6 +63,10 @@
             @forelse ($products as $product)
                 <tr>
                     <td>{{ $product->variety }}</td>
+                    <td class="description-column">
+                        {{ $product->description }}
+
+                    </td>
                     <td class="{{ $product->price_5kg == 0 ? 'text-danger fw-bold' : '' }}">
                         {{ $product->price_5kg }}円
                     </td>

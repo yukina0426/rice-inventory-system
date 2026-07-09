@@ -33,8 +33,7 @@
 
                 <a href="{{ route('product-stocks.index') }}">年度在庫一覧</a>
 
-                {{-- 後で追加 --}}
-                {{-- <a href="{{ route('sales.index') }}">販売履歴</a> --}}
+                <a href="{{ route('sales.index') }}">販売履歴</a>
 
             </div>
         </nav>

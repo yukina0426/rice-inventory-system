@@ -79,7 +79,7 @@
                 登録
             </button>
 
-            <a href="{{ route('products.index') }}" class="btn btn-outline-secondary">
+            <a href="{{ route('product-stocks.index') }}" class="btn btn-outline-secondary">
                 一覧に戻る
             </a>
         </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductStock;
+use App\Http\Requests\ProductStockRequest;
 
 class ProductStockController extends Controller
 {
@@ -15,7 +16,7 @@ class ProductStockController extends Controller
         return view('product_stocks.create', compact('products'));
     }
 
-    public function store(Request $request)
+    public function store(ProductStockRequest $request)
     {
         $validated = $request->validate([
             'product_id' => 'required|exists:products,id',
@@ -64,7 +65,7 @@ class ProductStockController extends Controller
         return view('product_stocks.edit', compact('productStock', 'products'));
     }
 
-    public function update(Request $request, ProductStock $productStock)
+    public function update(ProductStockRequest $request, ProductStock $productStock)
     {
         $validated = $request->validate([
             'product_id' => 'required|exists:products,id',

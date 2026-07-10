@@ -29,34 +29,6 @@
             </tr>
 
             <tr>
-                <th>5kg在庫</th>
-                <td>
-                    <input type="number" name="stock_5kg" value="{{ old('stock_5kg') }}" class="form-control">
-                </td>
-            </tr>
-
-            <tr>
-                <th>10kg在庫</th>
-                <td>
-                    <input type="number" name="stock_10kg" value="{{ old('stock_10kg') }}" class="form-control">
-                </td>
-            </tr>
-
-            <tr>
-                <th>20kg在庫</th>
-                <td>
-                    <input type="number" name="stock_20kg" value="{{ old('stock_20kg') }}" class="form-control">
-                </td>
-            </tr>
-
-            <tr>
-                <th>30kg在庫</th>
-                <td>
-                    <input type="number" name="stock_30kg" value="{{ old('stock_30kg') }}" class="form-control">
-                </td>
-            </tr>
-
-            <tr>
                 <th>5kg価格</th>
                 <td>
                     <input type="number" name="price_5kg" value="{{ old('price_5kg') }}" class="form-control">

@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ProductRequest extends FormRequest
 {
@@ -23,11 +24,13 @@ class ProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'variety' => 'required|max:100',
-            'stock_5kg' => 'required|integer|min:0',
-            'stock_10kg' => 'required|integer|min:0',
-            'stock_20kg' => 'required|integer|min:0',
-            'stock_30kg' => 'required|integer|min:0',
+            'variety' => [
+                'required',
+                'string',
+                'max:100',
+                Rule::unique('products', 'variety')
+                    ->ignore($this->route('product')),
+            ],
             'price_5kg' => 'required|integer|min:0',
             'price_10kg' => 'required|integer|min:0',
             'price_20kg' => 'required|integer|min:0',
@@ -39,10 +42,6 @@ class ProductRequest extends FormRequest
     {
         return [
             'variety' => '品種',
-            'stock_5kg' => '5kg在庫',
-            'stock_10kg' => '10kg在庫',
-            'stock_20kg' => '20kg在庫',
-            'stock_30kg' => '30kg在庫',
             'price_5kg' => '5kg価格',
             'price_10kg' => '10kg価格',
             'price_20kg' => '20kg価格',
@@ -57,6 +56,7 @@ class ProductRequest extends FormRequest
             '*.max' => ':attributeは:max文字以内で入力してください。',
             '*.integer' => ':attributeは数値で入力してください。',
             '*.min' => ':attributeは:min以上で入力してください。',
+            'variety.unique' => 'この品種はすでに登録されています。',
         ];
     }
 }

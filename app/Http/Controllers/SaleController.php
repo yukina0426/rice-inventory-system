@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductStock;
 use App\Models\Sale;
+use App\Http\Requests\SaleRequest;
 
 class SaleController extends Controller
 {
@@ -24,7 +25,7 @@ class SaleController extends Controller
     /**
      * 販売登録
      */
-    public function store(Request $request)
+    public function store(SaleRequest $request)
     {
         $request->validate([
             'product_stock_id' => 'required|exists:product_stocks,id',

@@ -13,20 +13,8 @@
             <td>{{ $product->variety }}</td>
         </tr>
         <tr>
-            <th>5kg在庫</th>
-            <td class="{{ $product->stock_5kg == 0 ? 'text-danger fw-bold' : '' }}">{{ $product->stock_5kg }}袋</td>
-        </tr>
-        <tr>
-            <th>10kg在庫</th>
-            <td class="{{ $product->stock_10kg == 0 ? 'text-danger fw-bold' : '' }}">{{ $product->stock_10kg }}袋</td>
-        </tr>
-        <tr>
-            <th>20kg在庫</th>
-            <td class="{{ $product->stock_20kg == 0 ? 'text-danger fw-bold' : '' }}">{{ $product->stock_20kg }}袋</td>
-        </tr>
-        <tr>
-            <th>30kg在庫</th>
-            <td class="{{ $product->stock_30kg == 0 ? 'text-danger fw-bold' : '' }}">{{ $product->stock_30kg }}袋</td>
+            <th>説明</th>
+            <td>{{ $product->description }}</td>
         </tr>
         <tr>
             <th>5kg価格</th>
@@ -43,10 +31,6 @@
         <tr>
             <th>30kg価格</th>
             <td>{{ $product->price_30kg }}円</td>
-        </tr>
-        <tr>
-            <th>説明</th>
-            <td>{{ $product->description }}</td>
         </tr>
     </table>
 </div>

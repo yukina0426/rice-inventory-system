@@ -69,7 +69,7 @@ Laravel Breezeを利用してログイン認証を実装しています。
 | PHP       | 8.2    |
 | Laravel   | 12     |
 | Bootstrap | 5      |
-| Database  | SQLite |
+| Database  | MySQL  |
 
 ## 設計
 
